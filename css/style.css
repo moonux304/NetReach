@@ -49,7 +49,7 @@ body {
 
 .brand-text {
   font-weight: 600;
-  color: var(--tertiary-color)
+  color: var(--light-bg);
 }
 
 .nav-link {
