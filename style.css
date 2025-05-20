@@ -487,7 +487,7 @@ body {
 }
 
 .product-nav-tabs .nav-link {
-  color: var(--product-secondary);
+  color: black !important;
   font-weight: 600;
   border: none;
   padding: 10px 30px;
@@ -495,6 +495,7 @@ body {
   border-radius: 30px;
   transition: all 0.3s ease;
 }
+
 
 .product-nav-tabs .nav-link:hover {
   color: var(--product-orange);
