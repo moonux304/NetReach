@@ -32,7 +32,6 @@ document.querySelectorAll('.btn-see-more').forEach(button => {
                         this.closest('.team-card')?.querySelector('h5')?.textContent ||
                         'More information';
     
-    alert(`More information about ${productName} coming soon!`);
   });
 });
 
