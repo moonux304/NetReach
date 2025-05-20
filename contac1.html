@@ -120,37 +120,46 @@
   </section>
 
   <!-- Form & Sosial Media -->
-  <section class=" py-5 px-3">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-md-6">
-          <div class="form-box">
-            <h2>Kirim Pesan</h2>
-            <p>Isi form berikut untuk menghubungi kami.</p>
-            <form>
-              <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Nama Anda">
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email Anda">
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" rows="4" placeholder="Pesan Anda..."></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
-            </form>
+  <!-- Form & Sosial Media -->
+<section class="py-5 px-3" id="contact">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <div class="form-box">
+          <h2>Kirim Pesan</h2>
+          <p>Isi form berikut untuk menghubungi kami.</p>
+          
+          <!-- Alert success yang awalnya disembunyikan -->
+          <div class="alert alert-success alert-dismissible fade" id="successAlert" role="alert">
+            <strong>Terima kasih!</strong> Pesan Anda berhasil terkirim. Tim kami akan segera menghubungi Anda.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+          
+          <form id="contactForm">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="nameInput" placeholder="Nama Anda" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" id="emailInput" placeholder="Email Anda" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" id="messageInput" rows="4" placeholder="Pesan Anda..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+          </form>
         </div>
-        <div class="col-md-6 text-center">
-          <h2 class="text-white">Ikuti Kami</h2>
-          <div class="social-icons mt-3">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-x-twitter"></i>
-          </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <h2 class="text-white"></h2>
+        <div class="social-icons mt-3">
+          <!-- <i class="fab fa-instagram"></i> -->
+          <i class="fab fa-x-twitter"></i>
+          <img src="images/tower.png" alt="">
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer id="contact" class="footer">
@@ -183,10 +192,10 @@
         <div class="col-lg-3 col-md-6 mb-4">
           <h6>Navigasi</h6>
           <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About US</a></li>
-            <li><a href="#products">Product</a></li>
-            <li><a href="#team">Our Team</a></li>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About US</a></li>
+            <li><a href="product.html">Product</a></li>
+            <li><a href="team.html">Our Team</a></li>
             <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
@@ -213,5 +222,40 @@
 
   <!-- Script Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Ambil referensi ke form
+    const contactForm = document.getElementById('contactForm');
+    
+    // Tambahkan event listener untuk submit form
+    contactForm.addEventListener('submit', function(event) {
+      // Cegah form dikirim secara default
+      event.preventDefault();
+      
+      // Ambil nilai input
+      const name = document.getElementById('nameInput').value;
+      const email = document.getElementById('emailInput').value;
+      const message = document.getElementById('messageInput').value;
+      
+      // Validasi sederhana
+      if (name && email && message) {
+        // Tampilkan alert sukses
+        const successAlert = document.getElementById('successAlert');
+        successAlert.classList.add('show');
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Scroll ke alert
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        
+        // Contoh simulasi pengiriman data:
+        console.log('Data yang dikirim:', { name, email, message });
+      }
+    });
+  });
+</script>
 </body>
 </html>
